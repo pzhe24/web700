@@ -1,0 +1,111 @@
+.navbar {
+  background-color: #fcefdf;
+  -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
+}
+
+.table,
+.table th,
+.table td {
+  border: 1px solid black !important;
+}
+
+.table th {
+  text-decoration: underline;
+  font-size: x-large;
+  background-color: silver;
+}
+
+.navbar-nav a,
+.navbar-brand,
+table,
+h1,
+.row label,
+legend,
+select {
+  font-family: "Fredoka", sans-serif;
+}
+.navbar-nav a,
+.navbar-brand {
+  color: rgb(0, 112, 187);
+}
+
+.navbar-nav a:hover,
+.navbar-brand:hover {
+  color: rgb(240, 217, 155);
+}
+
+.active a {
+  color: rgb(241, 163, 209);
+}
+
+.btn:hover {
+  background-color: rgb(142, 204, 142);
+}
+
+body {
+  background: rgba(207, 207, 207, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(207, 207, 207, 1) 0%,
+    rgba(207, 207, 207, 1) 20%,
+    rgba(214, 214, 214, 1) 35%,
+    rgba(196, 196, 196, 1) 68%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(207, 207, 207, 1)),
+    color-stop(20%, rgba(207, 207, 207, 1)),
+    color-stop(35%, rgba(214, 214, 214, 1)),
+    color-stop(68%, rgba(196, 196, 196, 1)),
+    color-stop(100%, rgba(240, 240, 240, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(207, 207, 207, 1) 0%,
+    rgba(207, 207, 207, 1) 20%,
+    rgba(214, 214, 214, 1) 35%,
+    rgba(196, 196, 196, 1) 68%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(207, 207, 207, 1) 0%,
+    rgba(207, 207, 207, 1) 20%,
+    rgba(214, 214, 214, 1) 35%,
+    rgba(196, 196, 196, 1) 68%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(207, 207, 207, 1) 0%,
+    rgba(207, 207, 207, 1) 20%,
+    rgba(214, 214, 214, 1) 35%,
+    rgba(196, 196, 196, 1) 68%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(207, 207, 207, 1) 0%,
+    rgba(207, 207, 207, 1) 20%,
+    rgba(214, 214, 214, 1) 35%,
+    rgba(196, 196, 196, 1) 68%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfcfcf', endColorstr='#f0f0f0', GradientType=1 );
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(189, 220, 247);
+}
+
+tr:nth-child(even) {
+  background-color: rgb(169, 209, 192);
+}
+
+.demoTitle {
+  color: rgb(122, 169, 201);
+}
