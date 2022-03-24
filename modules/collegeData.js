@@ -131,4 +131,38 @@ module.exports.addStudent = function(formData){
     })
 }
 
+//assignment 5 get course
+module.exports.getCoursebyId = function(id){
+    let course = dataCollection.courses;
+    return new Promise(function(resolve, reject){
+        for(var i=0;i<course.length;i++){
+            if(course[i].courseId == id){
+                resolve(course[i]);
+            }else if(id < 1 || id > course.length){
+                reject("query returned 0 results");
+            }
+        }
+        
+    })
+}
+
+//assignment 5 - updateStudent
+module.exports.updateStudents = function(studentData){
+    let students = dataCollection.students;
+    return new Promise(function(resolve, reject){
+        for(var i=0;i<students.length;i++){
+            if(students[i].studentNum == studentData.studentNum){
+                if(studentData.TA == undefined){
+                    studentData.TA = false;
+                }else{
+                    studentData.TA = true;
+                }
+                students[i] = studentData;
+                //resolve(dataCollection.students);
+            }
+        }
+        resolve(dataCollection.students);
+    })
+}
+
 
