@@ -123,7 +123,6 @@ app.get("/courses", (req,res) =>{
     })
 });
 
-
 //return all tas
 app.get("/tas",(req,res)=>{
     collegeMod.initialize().then(()=>{
