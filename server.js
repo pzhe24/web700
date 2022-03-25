@@ -72,8 +72,8 @@ app.use(express.urlencoded({ extended: true}));
 
 //post request for the form
 app.post('/students/add', (req, res)=>{
-    collegeMod.addStudent(req.body).then((returnedData)=>{
-        res.redirect('/allstudents');
+    collegeMod.addStudent(req.body).then(()=>{
+        res.redirect('/students');
     }).catch((err)=>{
         res.send(err);
     })
@@ -87,10 +87,8 @@ app.post("/student/update", (req,res)=>{
     })
 })
 
-
 //get all students
 app.get("/students",(req,res)=>{
-
     if(req.query.course){
         collegeMod.getStudentsByCourse(req.query.course).then((returnedData)=>{
             res.render('students',{studentsList:returnedData})
@@ -104,7 +102,6 @@ app.get("/students",(req,res)=>{
                 res.render("students",{message: "no results"});
             })
     }
-    
 })
 
 //assignment 5 getcoursebyid
@@ -150,7 +147,6 @@ app.get("/student/:num", (req,res)=>{
         res.json({message:"no results"});
     })
 });
-
 
 app.use((req, res, next)=>{
     res.status(404).send("Page Not Found");
