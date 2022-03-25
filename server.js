@@ -70,51 +70,30 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 //end of assignment 4 middleware
 
-
 //post request for the form
 app.post('/students/add', (req, res)=>{
     collegeMod.addStudent(req.body).then((returnedData)=>{
-        app.set('formData', returnedData);
-        res.redirect('/studentss');
-        //console.log(returnedData);
+        res.redirect('/allstudents');
     }).catch((err)=>{
         res.send(err);
     })
 });
-
-app.get('/studentss',(req,res)=>{
-    res.send(app.get('formData'));
-})
-
 //end of assignment 4
 
 //assignment 5 updateStudent
 app.post("/student/update", (req,res)=>{
     collegeMod.updateStudents(req.body).then((data)=>{
-       // res.redirect("/student/" + req.body.studentNum);
-       app.set('updatedData', data);
-       res.redirect("/updatedstudents");
-       //console.log(data);
+       res.redirect("/allstudents");
     })
-})
-
-//to handle the updated data. assignment 5
-app.get('/updatedstudents',(req,res)=>{
-    returnedData = app.get('updatedData');
-    res.render('students',{studentsList:returnedData});
 })
 
 
 //get all students
 app.get("/allstudents",(req,res)=>{
-    collegeMod.initialize().then(()=>{
-        collegeMod.getAllStudents().then((returnedData)=>{
-            res.render("students",{studentsList:returnedData});
-        }).catch(()=>{
-            res.render("students",{message: "no results"});
-        })
-    }).catch((err)=>{
-        res.render("students",err);
+    collegeMod.getAllStudents().then((returnedData)=>{
+    res.render('students',{studentsList:returnedData})
+    }).catch(()=>{
+        res.render("students",{message: "no results"});
     })
 })
 
@@ -140,17 +119,12 @@ app.get("/courses", (req,res) =>{
 
 //get students by course
 app.get("/students",(req,res) =>{
-
     let students = req.query.course;
-    collegeMod.initialize().then(()=>{
         collegeMod.getStudentsByCourse(students).then((returnedData)=>{
-            res.send(returnedData);
+            res.render("students",{studentsList:returnedData});
         }).catch(()=>{
             res.json({message:"no results"});
         })
-    }).catch((err)=>{
-        res.send(err.message);
-    })
 });
 
 //return all tas
@@ -167,7 +141,6 @@ app.get("/tas",(req,res)=>{
 });
 
 
-
 //return student by number
 app.get("/student/:num", (req,res)=>{
     studentNum = req.params.num
@@ -177,7 +150,6 @@ app.get("/student/:num", (req,res)=>{
         res.json({message:"no results"});
     })
 });
-
 
 
 app.use((req, res, next)=>{
