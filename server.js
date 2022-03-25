@@ -83,18 +83,28 @@ app.post('/students/add', (req, res)=>{
 //assignment 5 updateStudent
 app.post("/student/update", (req,res)=>{
     collegeMod.updateStudents(req.body).then((data)=>{
-       res.redirect("/allstudents");
+       res.redirect("/students");
     })
 })
 
 
 //get all students
-app.get("/allstudents",(req,res)=>{
-    collegeMod.getAllStudents().then((returnedData)=>{
-    res.render('students',{studentsList:returnedData})
-    }).catch(()=>{
-        res.render("students",{message: "no results"});
-    })
+app.get("/students",(req,res)=>{
+
+    if(req.query.course){
+        collegeMod.getStudentsByCourse(req.query.course).then((returnedData)=>{
+            res.render('students',{studentsList:returnedData})
+            }).catch(()=>{
+                res.render("students",{message: "no results"});
+            })
+    }else{
+        collegeMod.getAllStudents().then((returnedData)=>{
+            res.render('students',{studentsList:returnedData})
+            }).catch(()=>{
+                res.render("students",{message: "no results"});
+            })
+    }
+    
 })
 
 //assignment 5 getcoursebyid
@@ -116,16 +126,6 @@ app.get("/courses", (req,res) =>{
     })
 });
 
-
-//get students by course
-app.get("/students",(req,res) =>{
-    let students = req.query.course;
-        collegeMod.getStudentsByCourse(students).then((returnedData)=>{
-            res.render("students",{studentsList:returnedData});
-        }).catch(()=>{
-            res.json({message:"no results"});
-        })
-});
 
 //return all tas
 app.get("/tas",(req,res)=>{
