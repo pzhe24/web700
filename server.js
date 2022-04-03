@@ -6,7 +6,7 @@
  *
  * Name: Zhenhui He       Student ID: 176117216       Date: April 03, 2022
  *
- * Online (Heroku) Link:     https://web700-a6.herokuapp.com
+ * Online (Heroku) Link:     https://web700-assignment6.herokuapp.com
  *
  ********************************************************************************/
 
