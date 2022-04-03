@@ -1,7 +1,21 @@
 {
   "dependencies": {
     "body-parser": "^1.19.2",
-    "express": "^4.17.2",
-    "express-handlebars": "^6.0.3"
-  }
+    "expres": "^0.0.5",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.17.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "assignment6",
+  "version": "1.0.0",
+  "description": "WEB700-Assignment6",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "Zhenhui He",
+  "license": "ISC"
 }
