@@ -23,20 +23,15 @@
 // });
 
 const Sequelize = require("sequelize");
-var sequelize = new Sequelize(
-  "d9uttuekqlu1cp",
-  "pbohvwhnuhycco",
-  "2cf8ab8c15c4e100e06c02d430db252506b0855ce476b98471e3682a56209502",
-  {
-    host: "ec2-18-214-134-226.compute-1.amazonaws.com",
-    dialect: "postgres",
-    port: 5432,
-    dialectOptions: {
-      ssl: { rejectUnauthorized: false },
-    },
-    query: { raw: true },
-  }
-);
+var sequelize = new Sequelize("database", "user", "password", {
+  host: "ec2-18-214-134-226.compute-1.amazonaws.com",
+  dialect: "postgres",
+  port: 5432,
+  dialectOptions: {
+    ssl: { rejectUnauthorized: false },
+  },
+  query: { raw: true },
+});
 
 sequelize
   .authenticate()
@@ -213,7 +208,6 @@ module.exports.addCourse = function (courseData) {
         courseData[prop] = null;
       }
     }
-
     Course.create(courseData)
       .then(() => {
         resolve();
